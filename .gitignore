@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# User specific files
+/.idea/
+config/database.yml
+.rvmrc
+log/*
