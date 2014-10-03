@@ -39,4 +39,11 @@ class User < ActiveRecord::Base
 
   has_many :devices,              dependent: :destroy
   accepts_nested_attributes_for :devices
+
+  # RailsAdmin
+  #rails_admin do
+  #  configure :users do
+  #    label 'Owner of this ball: '
+  #  end
+  #end
 end
