@@ -30,13 +30,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #validates :email, :full_name, presence: true
-  #validates :cnic, presence: true, uniqueness: true, length: { is: 13 }
-  #validates :phone, presence: true, uniqueness: true, length: { is: 11 }
+  validates :email, :name, presence: true
+  validates :cnic, presence: true, uniqueness: true, length: { is: 13 }
+  validates :phone, presence: true, uniqueness: true, length: { is: 10 }
 
   has_many :contact_informations, dependent: :destroy
   accepts_nested_attributes_for :contact_informations
 
   has_many :devices,              dependent: :destroy
   accepts_nested_attributes_for :devices
+
+  validates_confirmation_of :password, if: :re_valid
+  def re_valid
+    false
+  end
 end

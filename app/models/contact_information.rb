@@ -13,7 +13,6 @@
 class ContactInformation < ActiveRecord::Base
   self.inheritance_column = nil
   TYPE = %w[Phone Address]
-  attr_accessible :user, :user_id, :value, :type
 
   belongs_to :user
 end

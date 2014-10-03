@@ -1,0 +1,22 @@
+<%= simple_form_for @device do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, 'error') %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :company, input_html: {autofocus: true} %>
+  <%= f.input :model %>
+  <%= f.input :type, collection: Device::TYPE, include_blank: false, required: true %>
+  <%= f.input :key, required: true %>
+  <%= f.input :status, collection: Device::STATUS, include_blank: false, required: true %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
