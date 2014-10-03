@@ -17,6 +17,7 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer', platforms: :ruby
+  gem 'sass-globbing', :git => 'git://github.com/jsw0528/sass-globbing.git'
 end
 
 group :development do

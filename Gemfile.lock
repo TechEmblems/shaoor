@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jsw0528/sass-globbing.git
+  revision: 175fb23a1ddef8e4dda335232680ea32a5e24fbd
+  specs:
+    sass-globbing (1.1.2)
+      sass (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,6 +205,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails_admin (~> 0.6.3)
+  sass-globbing!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form (~> 3.0.2)
