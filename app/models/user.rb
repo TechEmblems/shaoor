@@ -17,33 +17,39 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
-#  full_name              :string(255)      not null
+#  name              :string(255)      not null
 #  father_name            :string(255)
 #  cnic                   :integer          not null
 #  phone                  :integer          not null
-#  address                :integer
+#  address                :string
 #  created_at             :datetime
 #  updated_at             :datetime
 #
 
 class User < ActiveRecord::Base
+  ROLES = %w[Consumer Admin Dealer]
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #validates :email, :full_name, presence: true
-  #validates :cnic, presence: true, uniqueness: true, length: { is: 13 }
-  #validates :phone, presence: true, uniqueness: true, length: { is: 11 }
+  validates :email, presence: true
+  before_update :check_completed_profile
 
-  has_many :contact_informations, dependent: :destroy
-  accepts_nested_attributes_for :contact_informations
+  has_many :contact_details, dependent: :destroy
+  accepts_nested_attributes_for :contact_details
 
-  has_many :devices,              dependent: :destroy
+  has_many :devices, dependent: :destroy
   accepts_nested_attributes_for :devices
 
-  # RailsAdmin
-  #rails_admin do
-  #  configure :users do
-  #    label 'Owner of this ball: '
-  #  end
-  #end
+  validates_confirmation_of :password, if: :re_valid
+  def re_valid
+    false
+  end
+
+  def check_completed_profile
+    unless self.completed_profile
+      unless self.name.blank? and self.cnic.blank? and self.phone.blank? and self.address.blank? and self.father_name.blank?
+        self.completed_profile = true
+      end
+    end
+  end
 end

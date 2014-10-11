@@ -29,14 +29,18 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string  :name,              null: false, default: nil
+      t.string  :name,              null: false, default: ''
       t.string  :father_name,       default: nil
-      t.integer :cnic,              null: false, limit: 8
-      t.integer :phone,             null: false, limit: 6
-      t.integer :address,           default: nil
+      t.integer :cnic,              default: nil, limit: 8
+      t.integer :phone,             default: nil, limit: 6
+      t.string  :address,           default: nil
+      t.string :role,              null: false, default: 'Consumer'
+      t.boolean :terms,             default: false
+      t.boolean :completed_profile, default: false
 
       t.timestamps
     end
+    User.create(name: 'RD Administrator', email: 'admin@regdevice.com', password: 'rd.admin', confirmation_token: nil, confirmed_at: Time.now, phone: '090078601', address: 'regdevice.com', role: 'Admin', terms: true, completed_profile: true)
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
