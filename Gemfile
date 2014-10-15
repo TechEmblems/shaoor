@@ -34,6 +34,13 @@ gem 'rails_admin', '~> 0.6.3'
 
 # APP SERVER
 gem 'puma', '~> 2.9.1'
+
+# DEPLOYMENT
+group :development do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-ext', '~> 1.2.1'
+  gem 'capistrano_colors', '~> 0.5.5'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
