@@ -1,1 +1,121 @@
-<p>Welcome to homepage.</p>
+<%= render :partial => 'header' %>
+<%= render :partial => 'about_us' %>
+<!-- Interduce Starts Here  ---->
+<!--<div class="interduce">
+  <div class="container">
+    <div class="row interduce-row">
+      <div class="col-md-6 inter-row-column2">
+        <img src="<%#= image_url('iphone-1.png') %>" alt=""/>
+      </div>
+      <div class="col-md-6 inter-row-column">
+        <h4>Who are we?</h4>
+        <p>Project Shaoor is an initiative taken by group of Pakistani Software Engineers where the target is to solve domestic issues with or without Government's help. We believe in “Apni Madad Aap” and that’s what we are trying to achieve by taking such initiatives. </p>
+        <p>This is just the beginning, RegDevice is Chapter#1 of Project Shaoor we have lots of other ideas to launch and we will. In Sha Allah </p>
+        <ul class="inter-duce">
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>-->
+<!-- Interduce Ends Here  ---->
+<!--- Slider Starts Here --->
+<div class="slider">
+  <div class="container">
+    <div class="slider-content">
+      <script src="/assets/responsiveslides.min.js"></script>
+      <script>
+          // You can also use "$(window).load(function() {"
+          $(function () {
+              // Slideshow 4
+              $("#slider4").responsiveSlides({
+                  auto: true,
+                  pager: true,
+                  nav: true,
+                  speed: 500,
+                  namespace: "callbacks",
+                  before: function () {
+                      $('.events').append("<li>before event fired.</li>");
+                  },
+                  after: function () {
+                      $('.events').append("<li>after event fired.</li>");
+                  }
+              });
+
+          });
+      </script>
+      <!----//End-slider-script---->
+      <!-- Slideshow 4 -->
+      <div  id="top" class="callbacks_container">
+        <ul class="rslides" id="slider4">
+          <li>
+            <div class="slider-top">
+              <img src="<%= image_url('1.jpg') %>" alt=""/>
+              <p>"I am so happy because I found this recipe, and it just made my life easier.<br>Thanks  so much for sharing!"</p>
+              <p class="below">- Michael Dawson, San Francisco, CA -</p>
+            </div>
+          </li>
+          <li>
+            <div class="slider-top">
+              <img src="<%= image_url('2.jpg') %>" alt=""/>
+              <p>"I am so happy because I found this recipe, and it just made my life easier.<br>Thanks  so much for sharing!"</p>
+              <p class="below">- Aaron Dawson, San Francisco, CA -</p>
+            </div>
+          </li>
+          <li>
+            <div class="slider-top">
+              <img src="<%= image_url('3.jpg') %>" alt=""/>
+              <p>"I am so happy because I found this recipe, and it just made my life easier.<br>Thanks  so much for sharing!"</p>
+              <p class="below">- Johnson Dawson, San Francisco, CA -</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+      <!--- banner Slider Ends Here --->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!--- Slider Ends Here --->
+<!--- Portfolio Starts Here --->
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="container">
+    <ul class="numbers">
+      <li>
+        <div class="number-top">
+          <h4>23,567</h4>
+          <p>Queries received</p>
+        </div>
+      </li>
+      <li>
+        <div class="number-top">
+          <h4>431,729</h4>
+          <p>Active Users</p>
+        </div>
+      </li>
+      <li>
+        <div class="number-top">
+          <h4>892,173</h4>
+          <p>Registered Devices</p>
+        </div>
+      </li>
+      <li>
+        <div class="number-top">
+          <h4>56,581</h4>
+          <p>Reported to PTA</p>
+        </div>
+      </li>
+      <li>
+        <div class="number-top">
+          <h4>3,182</h4>
+          <p>Registered Dealers</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--- Portfolio Ends Here --->

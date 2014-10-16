@@ -31,6 +31,8 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (3.1.1.20141001)
+      execjs
     bcrypt (3.1.7)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -38,7 +40,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.2)
+    bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
     callsite (0.0.11)
@@ -199,9 +201,10 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.6.5)
+  autoprefixer-rails
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.2.0.2)
+  bootstrap-sass (~> 3.1.1)
   cancan (~> 1.6.10)
   capistrano (~> 3.2.1)
   capistrano-ext (~> 1.2.1)
