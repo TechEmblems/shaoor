@@ -5,7 +5,7 @@ set :application, 'regdevice'
 set :repo_url, 'git@github.com:shahroon/shaoor.git'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+set :branch, 'production'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/apps/regdevice'
