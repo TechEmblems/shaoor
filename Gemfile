@@ -39,6 +39,7 @@ gem 'puma', '~> 2.9.1'
 # DEPLOYMENT
 group :development do
   gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano-ext', '~> 1.2.1'
   gem 'capistrano_colors', '~> 0.5.5'
 end
