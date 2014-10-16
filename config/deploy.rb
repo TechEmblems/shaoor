@@ -6,11 +6,13 @@ set :repo_url, 'git@github.com:shahroon/shaoor.git'
 
 # Default branch is :master
 set :branch, 'production'
-set :rvm_ruby_version, '2.1.3@regdevice'
+
+set :rvm_type, :system
+set :rvm_ruby_version, 'ruby-2.1.3@regdevice'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/apps/regdevice'
-
+set :use_sudo, true
 # Default value for :scm is :git
 # set :scm, :git
 

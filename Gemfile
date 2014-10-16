@@ -42,7 +42,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-ext', '~> 1.2.1'
-  gem 'capistrano_colors', '~> 0.5.5'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
