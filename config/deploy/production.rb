@@ -25,56 +25,32 @@ server '162.243.69.154', user: 'deploy', roles: %w{web app}, my_property: :my_va
 #
 # Global options
 # --------------
-set :branch, 'master'
-set :use_sudo, true
-set :shell, '/bin/bash --login'
-set :deploy_to, '/home/deploy/apps/regdevice'
-set :deploy_via, :remote_cache
-set :bluepill_bin, 'bluepill'
-set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-   forward_agent: true
-#    auth_methods: %w(password)
-}
-
-default_run_options[:pty] = true
-default_run_options[:shell] = '/bin/bash --login'
-ssh_options[:forward_agent] = true
-
-after 'deploy:finalize_update', 'db:symlink'
-after 'deploy:finalize_update', 'sockets:symlink'
-
-namespace :db do
-  task :symlink do
-    run "rm -f #{release_path}/config/database.yml && ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-end
-
-namespace :sockets do
-  task :symlink do
-    run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
-  end
-end
-
-namespace :deploy do
-  desc 'Start bluepill daemon'
-  task :start do
-    run "sudo #{bluepill_bin} load /etc/bluepill/#{application}.pill"
-  end
-  desc 'Stop bluepill daemon'
-  task :stop do
-    run "sudo #{bluepill_bin} #{application} stop"
-  end
-  desc 'Restart bluepill daemon'
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "sudo #{bluepill_bin} #{application} restart"
-  end
-  desc 'Show status of the bluepill daemon'
-  task :status do
-    run "sudo #{bluepill_bin} #{application} status"
-  end
-end
-
+# set :branch, 'master'
+# set :use_sudo, true
+# set :shell, '/bin/bash --login'
+# set :deploy_to, '/home/deploy/apps/regdevice'
+# set :deploy_via, :remote_cache
+# set :ssh_options, {
+# #    keys: %w(/home/rlisowski/.ssh/id_rsa),
+#    forward_agent: true
+# #    auth_methods: %w(password)
+# }
+#
+# task :uploads_symlink do
+#   run "rm -rf #{release_path}/public/uploads"
+#   run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+# end
+#
+# task :db_symlink do
+#   run "rm -f #{release_path}/config/database.yml && ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+# end
+#
+# task :sockets_symlink do
+#   run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
+# end
+# after :finishing, :db_symlink
+# after :finishing, :sockets_symlink
+# after :finishing, :uploads_symlink
 
 
 #
