@@ -6,6 +6,7 @@ gem 'mysql2', '~> 0.3.16'
 gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'annotate', '~> 2.6.5'
+gem 'settingslogic', '~> 2.0.9'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -32,6 +33,10 @@ end
 gem 'devise', '~> 3.3.0'
 gem 'cancan', '~> 1.6.10'
 gem 'rails_admin', '~> 0.6.3'
+
+# API
+gem 'grape', '~> 0.9.0'
+gem 'grape-swagger', '~> 0.8.0'
 
 # APP SERVER
 gem 'puma', '~> 2.9.1'
