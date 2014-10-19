@@ -6,6 +6,7 @@ gem 'mysql2', '~> 0.3.16'
 gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'annotate', '~> 2.6.5'
+gem 'settingslogic', '~> 2.0.9'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -33,8 +34,20 @@ gem 'devise', '~> 3.3.0'
 gem 'cancan', '~> 1.6.10'
 gem 'rails_admin', '~> 0.6.3'
 
+# API
+gem 'grape', '~> 0.9.0'
+gem 'grape-swagger', '~> 0.8.0'
+
 # APP SERVER
 gem 'puma', '~> 2.9.1'
+
+# DEPLOYMENT
+group :development do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1.2'
+  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-ext', '~> 1.2.1'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

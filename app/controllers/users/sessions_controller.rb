@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
 
   def new
-    puts "testing 12"
+    puts 'testing 12'
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     respond_with(resource, serialize_options(resource))

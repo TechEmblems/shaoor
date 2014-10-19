@@ -2,7 +2,8 @@
 <div class="header" id="home">
   <div class="container">
     <div class="logo">
-      <a href="index.html"><img src="<%= image_url('logo.png') %>" alt=""></a>
+      <%= image_tag 'logo-text.png' %><br>
+      <h5>You don't buy, They don't snatch</h5>
     </div>
     <div class="menu">
       <ul class="menu-top">
@@ -80,7 +81,7 @@
           <h3>Menu</h3>
           <a href="#home" class="scroll">Home</a>
           <a href="#about" class="scroll">About</a>
-          <a href="#portfolio" class="scroll">Portfolio</a>
+          <!--<a href="#portfolio" class="scroll">Portfolio</a>-->
         </nav>
       </div>
       <script src="/assets/classie.js"></script>
@@ -110,8 +111,8 @@
       <p>Register Your device</p>
       <h1>RegDevice</h1>
       <form class="search-form-wrapper cf">
-        <input id="search-box" type="text" placeholder="Search here...">
-        <button type="submit" id="search-btn">Search</button>
+        <input id="search-box" type="text" placeholder="Please insert your IMEI or serial key">
+        <button type="submit" id="search-btn">Check</button>
       </form>  
       <!--<a href="#">Get Started</a>-->
       <p class="reward">OR SEND US YOUR IMEI AND <u>GET REGISTERED!</u></p>

@@ -41,7 +41,21 @@ body input {
 }
 
 .logo {
+  background: url('logo.png') no-repeat;
+  background-size: 50px;
+  height: 65px;
+  background-color: transparent;
   float: left;
+  img {
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 65px;
+  }
+  h5 {
+    color: #CCCCCC;
+    margin-left: 65px;
+    font-weight: bold;
+  }
 }
 
 .menu {
