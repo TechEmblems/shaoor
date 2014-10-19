@@ -47,6 +47,15 @@ namespace :deploy do
     end
   end
 
+  desc "Symlinks config file for database.yml"
+  task :symlink_config do
+    on roles(:app, :db) do
+      execute "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      end
+  end
+
+
+  before "deploy:compile_assets", :symlink_config
   after :publishing, :restart
 
   after :restart, :clear_cache do
@@ -57,5 +66,8 @@ namespace :deploy do
       # end
     end
   end
+
+  #after "deploy:updated", "deploy:symlink_config"
+
 
 end
