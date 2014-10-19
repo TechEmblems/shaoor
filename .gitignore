@@ -17,6 +17,6 @@
 
 # User specific files
 /.idea/
-#config/database.yml
+config/database.yml
 .rvmrc
 log/*
