@@ -15,8 +15,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
-  gem 'autoprefixer-rails'
-  gem 'uglifier', '>= 1.3.0'
+  gem 'autoprefixer-rails', '~> 3.1.2.20141016'
+  gem 'uglifier', '~> 2.5.3'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer', platforms: :ruby
 end
@@ -31,6 +31,8 @@ end
 
 # AUTHENTICATION AND AUTHORIZATION
 gem 'devise', '~> 3.3.0'
+gem 'doorkeeper', '~> 1.4.0'
+gem 'grape-doorkeeper', '~> 0.0.2'
 gem 'cancan', '~> 1.6.10'
 gem 'rails_admin', '~> 0.6.3'
 
