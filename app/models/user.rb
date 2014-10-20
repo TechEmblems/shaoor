@@ -17,7 +17,7 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
-#  name              :string(255)      not null
+#  name                   :string(255)      not null
 #  father_name            :string(255)
 #  cnic                   :integer          not null
 #  phone                  :integer          not null
@@ -27,7 +27,10 @@
 #
 
 class User < ActiveRecord::Base
-  ROLES = %w[Consumer Admin Dealer]
+  ADMIN = 'Admin'
+  CONSUMER = 'Consumer'
+  DEALER = 'Dealer'
+  ROLES = [ADMIN, CONSUMER, DEALER]
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -39,6 +42,10 @@ class User < ActiveRecord::Base
 
   has_many :devices, dependent: :destroy
   accepts_nested_attributes_for :devices
+
+  def admin?
+    self.role == ADMIN
+  end
 
   validates_confirmation_of :password, if: :re_valid
   def re_valid

@@ -27,7 +27,7 @@
               <h4>Already a Member</h4>
               <%= f.input :email, label: false, :wrapper => false, required: false, autofocus: true, :placeholder => 'Email', :onfocus => "this.value = '';", :onblur => "if (this.value == '') {this.value = 'Email';}" %>
               <%= f.input :password, label: false, :wrapper => false, required: false, :placeholder => 'Password', :onfocus => "this.value = '';", :onblur => "if (this.value == '') {this.value = 'Password';}" %>
-              <%= f.submit "Login" %>
+              <%= f.submit 'Login' %>
           <% end %>
         </div>
       </div>
@@ -36,25 +36,13 @@
         <div class="signup">
           <h3>Sign Up</h3>
           <h4>Enter Your Details Here</h4>
-          <%= simple_form_for(:user, url: registration_path(:user)) do |f| %>
-              <%#= f.error_notification %>
-              <%= f.input :name, required: true, autofocus: true, label: false, :wrapper => false, :placeholder => 'Name' %>
-              <%= f.input :cnic, label: false, :wrapper => false, required: true, :placeholder => 'CNIC' %>
-              <%= f.input :email, label: false, :wrapper => false, required: true, :placeholder => 'Email' %>
-              <%= f.input :password, label: false, :wrapper => false, required: true, :placeholder => 'Password' %>
-              <%= f.input :password_confirmation, label: false, :wrapper => false, required: true, :placeholder => 'Confirm Password' %>
-              <%= f.input :phone, label: false, :wrapper => false, required: true, :placeholder => 'Contact No.' %>
-              <%= f.simple_fields_for :devices do |d| %>
-                  <%= d.input :type, collection: Device::TYPE, label: false, :wrapper => false, include_blank: false, required: true %>
-                  <%= d.input :key, label: false, :wrapper => false, required: true, :placeholder => 'Device Key' %>
-              <% end %>
+          <%= simple_form_for(:user, url: registration_path(:user), remote: true) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :email, label: false, wrapper: false, required: true, placeholder: 'Email' %>
+              <%= f.input :password, label: false, wrapper: false, required: true, placeholder: 'Password' %>
+
               <%= f.button :submit, 'Sign up' %>
           <% end %>
-          <!--<input type="text" value="First Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}" />-->
-          <!--<input type="text" value="Second Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Second Name';}" />-->
-          <!--<input type="text" class="email"value="Enter Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Email';}"  />-->
-          <!--<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"/>-->
-          <!--<input type="submit"  value="SignUp"/>-->
         </div>
       </div>
       <script>
