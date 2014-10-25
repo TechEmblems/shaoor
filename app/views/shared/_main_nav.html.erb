@@ -2,7 +2,6 @@
   <div class="container">
     <div class="col-md-2 col-sm-2 col-xs-2">
       <a href="<%= devices_path %>" class="active">
-        <!--<i class="icon icon-property-dashboard-active"></i>-->
         <i class="fa fa-mobile fa-3x"></i>
         <span class="icon-label">Devices</span>
       </a>
@@ -10,7 +9,6 @@
 
     <div class="col-md-2 col-sm-2 col-xs-2">
       <a href="/activities">
-        <!--<i class="icon icon-property-databases"></i>-->
         <i class="fa fa-tachometer fa-3x"></i>
         <span class="icon-label">Activities</span>
       </a>
@@ -18,7 +16,6 @@
 
     <div class="col-md-2 col-sm-2 col-xs-2">
       <a href="<%= edit_profile_path(current_user.id) %>">
-        <!--<i class="icon icon-property-dataclips"></i>-->
         <i class="fa fa-user fa-3x"></i>
         <span class="icon-label">Profile</span>
       </a>
@@ -26,7 +23,6 @@
 
     <div class="col-md-2 col-sm-2 col-xs-2">
       <a href="/contact-us">
-        <!--<i class="icon icon-property-addons"></i>-->
         <i class="fa fa-life-ring fa-3x"></i>
         <span class="icon-label">Support</span>
       </a>
@@ -34,8 +30,6 @@
     <% if user_signed_in? %>
         <div class="col-md-2 col-sm-2 col-xs-2">
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <!--<i class="icon icon-property-support"></i>-->
-            <!--<i class="fa fa-sign-out fa-3x"></i>-->
             <i class="fa fa-power-off fa-3x"></i>
             <span class="icon-label">Logout</span>
           <% end %>
