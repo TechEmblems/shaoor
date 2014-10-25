@@ -1,22 +1,55 @@
-<%= simple_form_for @device do |f| %>
-  <% if @device.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@device.errors.count, 'error') %> prohibited this device from being saved:</h2>
+<%= simple_form_for @device, :html => { :class => 'form-horizontal' }  do |f| %>
+    <% if @device.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@device.errors.count, 'error') %> prohibited this device from being saved:</h2>
 
-      <ul>
-      <% @device.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= f.input :company, input_html: {autofocus: true} %>
-  <%= f.input :model %>
-  <%= f.input :type, collection: Device::TYPE, include_blank: false, required: true %>
-  <%= f.input :key, required: true %>
-  <%= f.input :status, collection: Device::STATUS, include_blank: false, required: true %>
+          <ul>
+            <% @device.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <fieldset>
+      <legend><%= controller.action_name.capitalize %> Device</legend>
+      <div class="control-group">
+        <%= f.label :company, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input :company, label: false, input_html: {autofocus: true} %>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <div class="control-group">
+        <%= f.label :model, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input :model, label: false, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :type, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input :type, collection: Device::TYPE, label: false, :class => 'select_field', include_blank: false, required: true %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :key, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input :key, label: false, :class => 'text_field', include_blank: false, required: true %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :key, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input :status, collection: Device::STATUS, label: false, :class => 'text_field', include_blank: false, required: true %>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <%= f.submit :class => 'btn btn-primary' %>
+      </div>
+    </fieldset>
 <% end %>

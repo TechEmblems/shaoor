@@ -1,0 +1,37 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+<ul class="sidebar-nav">
+  <li class="sidebar-brand">
+    <!--<div class="sidebar-container property-switcher fixed-top">-->
+      <a id="ember929" class="ember-view" href="<%= root_path %>">
+        <%= image_tag "logo.png", class: 'brand-logo'%>
+        <h5 class="dashboard-logo-text"><%= current_user.name %></h5>
+      </a>
+      <!--<div class="navigator-toggle icon icon-navigator-toggle"></div>-->
+    <!--</div>-->
+  </li>
+  <li class="primary-devices">
+    <a href="#">
+      <!--<img id="ember946" class="ember-view gravatar-icon" src="https://gravatar.com/avatar/12707c89f9273d106ccbf8fd771f9e95?s=96&amp;d=https://dashboard.heroku.com%2Fninja-avatar-48x48.png%3Fssl%3D1" height="32px" width="32px">-->
+      <h6><%= 'Primary Devices' %></h6>
+    </a>
+    <!--<div class="sidebar-container">-->
+      <!--<div class="sidebar-user-section media dropdown">-->
+          <!--<a href="#">-->
+            <!--<img id="ember946" class="ember-view gravatar-icon" src="https://gravatar.com/avatar/12707c89f9273d106ccbf8fd771f9e95?s=96&amp;d=https://dashboard.heroku.com%2Fninja-avatar-48x48.png%3Fssl%3D1" height="32px" width="32px">-->
+            <!--<h5 class="username media-heading"><%#= current_user.email %></h5>-->
+          <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+  </li>
+  <li class="secondary-devices">
+    <!--<div class="sidebar-container">-->
+      <!--<div class="sidebar-user-section media dropdown">-->
+        <a href="#">
+          <h6><%= 'Other Devices' %></h6>
+        </a>
+      <!--</div>-->
+    <!--</div>-->
+  </li>
+</ul>
+</div>
