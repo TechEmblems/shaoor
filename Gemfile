@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 gem 'mysql2', '~> 0.3.16'
 gem 'simple_form', '~> 3.0.2'
-gem 'bootstrap-sass', '~> 3.1.1'
+#gem 'bootstrap-sass', '~> 3.1.1'
 gem 'annotate', '~> 2.6.5'
 
 gem 'jquery-rails'
@@ -17,9 +17,10 @@ group :assets do
   gem 'autoprefixer-rails'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'therubyracer', platforms: :ruby
 end
-
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -42,6 +43,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-ext', '~> 1.2.1'
+  gem 'faker'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

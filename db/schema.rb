@@ -23,16 +23,6 @@ ActiveRecord::Schema.define(version: 20141011215002) do
 
   add_index "contact_details", ["user_id"], name: "index_contact_details_on_user_id", using: :btree
 
-  create_table "contact_informations", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "type",       null: false
-    t.string   "value",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contact_informations", ["user_id"], name: "index_contact_informations_on_user_id", using: :btree
-
   create_table "devices", force: true do |t|
     t.string   "type",                 null: false
     t.string   "status"
@@ -56,12 +46,12 @@ ActiveRecord::Schema.define(version: 20141011215002) do
   add_index "logs_activity_logs", ["user_id"], name: "index_logs_activity_logs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                            default: "", null: false
-    t.string   "encrypted_password",               default: "", null: false
+    t.string   "email",                            default: "",         null: false
+    t.string   "encrypted_password",               default: "",         null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                    default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,          null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -70,11 +60,14 @@ ActiveRecord::Schema.define(version: 20141011215002) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "name",                                          null: false
+    t.string   "name",                             default: "",         null: false
     t.string   "father_name"
-    t.integer  "cnic",                   limit: 8,              null: false
-    t.integer  "phone",                  limit: 8,              null: false
-    t.integer  "address"
+    t.integer  "cnic",                   limit: 8
+    t.integer  "phone",                  limit: 8
+    t.string   "address"
+    t.string   "role",                             default: "Consumer", null: false
+    t.boolean  "terms",                            default: false
+    t.boolean  "completed_profile",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
