@@ -24,7 +24,7 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
-<body class="<%= 'landing' if current_page?(root_url) %>">
+<body class="<%= current_page?(root_url) ? 'landing' : 'account-page'  %>">
     <% if current_user %>
         <%= render 'shared/main_nav'%>
         <div id="wrapper">
