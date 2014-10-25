@@ -7,8 +7,10 @@ set :repo_url, 'git@github.com:shahroon/shaoor.git'
 # Default branch is :master
 set :branch, 'production'
 
-set :rvm_type, :system
-set :rvm_ruby_version, 'ruby-2.1.3@regdevice'
+set :rbenv_type, :system
+set :rbenv_ruby, '2.1.3'
+set :rbenv_path, '/opt/rbenv'
+# set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/apps/regdevice'
@@ -47,15 +49,23 @@ namespace :deploy do
     end
   end
 
-  desc "Symlinks config file for database.yml"
-  task :symlink_config do
-    on roles(:app, :db) do
-      execute "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-      end
+  before 'deploy:compile_assets', :symlink_db
+  # before 'deploy:compile_assets', :symlink_sockets
+
+  desc 'Symlinks for sockets'
+  task :symlink_sockets do
+    on roles(:app) do
+      execute "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
+    end
   end
 
+  desc 'Symlinks config file for database.yml'
+  task :symlink_db do
+    on roles(:app, :db) do
+      execute "rm -f #{release_path}/config/database.yml && ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    end
+  end
 
-  before "deploy:compile_assets", :symlink_config
   after :publishing, :restart
 
   after :restart, :clear_cache do

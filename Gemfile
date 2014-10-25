@@ -35,6 +35,7 @@ gem 'doorkeeper', '~> 1.4.0'
 gem 'grape-doorkeeper', '~> 0.0.2'
 gem 'cancan', '~> 1.6.10'
 gem 'rails_admin', '~> 0.6.3'
+gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 
 # API
 gem 'grape', '~> 0.9.0'
@@ -47,7 +48,7 @@ gem 'puma', '~> 2.9.1'
 group :development do
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-rails', '~> 1.1.2'
-  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
   gem 'capistrano-ext', '~> 1.2.1'
 end
 # Use ActiveModel has_secure_password
