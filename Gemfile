@@ -5,6 +5,7 @@ gem 'rails', '4.1.6'
 gem 'mysql2', '~> 0.3.16'
 gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 gem 'annotate', '~> 2.6.5'
 gem 'settingslogic', '~> 2.0.9'
 
@@ -35,7 +36,6 @@ gem 'doorkeeper', '~> 1.4.0'
 gem 'grape-doorkeeper', '~> 0.0.2'
 gem 'cancan', '~> 1.6.10'
 gem 'rails_admin', '~> 0.6.3'
-gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 
 # API
 gem 'grape', '~> 0.9.0'
