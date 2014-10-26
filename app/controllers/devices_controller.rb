@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  skip_before_filter  :verify_authenticity_token, only: [:update_status]
+  skip_before_filter  :verify_authenticity_token, only: [:update_status, :search]
 
   # GET /devices
   # GET /devices.json
@@ -69,6 +69,15 @@ class DevicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to devices_url, notice: 'Device was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    @device = Device.find_by_key(params[:search_key])
+    @notice = @device.blank? ? "Not Registered yet" : "Status on RegDevice.com: #{@device.status}"
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
