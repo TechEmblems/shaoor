@@ -1,5 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
+  skip_before_filter  :verify_authenticity_token, only: [:update_status]
 
   # GET /devices
   # GET /devices.json
@@ -47,6 +48,16 @@ class DevicesController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @device.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_status
+    @device = Device.find(params[:id])
+    if @device.update_attributes(status: params[:device][:status])
+      respond_to do |format|
+        format.html
+        format.js
       end
     end
   end

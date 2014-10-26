@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
-  resources :devices
+  resources :devices do
+    post :update_status, on: :member
+  end
   resources :profiles
 
   root 'home#index'
