@@ -19,9 +19,10 @@ group :assets do
   gem 'autoprefixer-rails', '~> 3.1.2.20141016'
   gem 'uglifier', '~> 2.5.3'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'therubyracer', platforms: :ruby
 end
-
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -50,6 +51,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano-rbenv', '~> 2.0.2'
   gem 'capistrano-ext', '~> 1.2.1'
+  gem 'faker'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

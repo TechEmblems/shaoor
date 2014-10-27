@@ -1,0 +1,987 @@
+#user-navigator {
+  //background: #433D79;
+  background-color: #1e3130;
+  padding: 18px 0;
+  top:0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  border-bottom: 5px solid white;
+  &.navbar-default{
+    //border: none;
+  }
+  a {
+    color: white;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    &.active, &:hover {
+      color: #99FF33;
+    }
+  }
+  .icon {
+    display: block;
+    margin: 0 auto;
+  }
+  .icon-label {
+    display: block;
+    font-size: 1em;
+  }
+}
+#page-content-wrapper{
+  .container-fluid{
+    h4{
+      padding: 20px 0;
+      color: #1e3130;
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+      vertical-align: middle;
+    }
+    > .switch {
+      display: block;
+      margin: 12px auto;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      //width: 56px;
+      //height: 20px;
+      //padding: 3px;
+      width: 60px;
+      height: 25px;
+      padding: 3px;
+      background-color: white;
+      border-radius: 18px;
+      font-weight: normal;
+      //box-shadow: outset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      background-image: -webkit-linear-gradient(top, #eeeeee, white 25px);
+      background-image: -moz-linear-gradient(top, #eeeeee, white 25px);
+      background-image: -o-linear-gradient(top, #eeeeee, white 25px);
+      background-image: linear-gradient(to bottom, #eeeeee, white 25px);
+    }
+
+    .switch-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .switch-label {
+      position: relative;
+      display: block;
+      height: inherit;
+      font-size: 10px;
+      text-transform: uppercase;
+      background: #eceeef;
+      border-radius: inherit;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+      -webkit-transition: 0.15s ease-out;
+      -moz-transition: 0.15s ease-out;
+      -o-transition: 0.15s ease-out;
+      transition: 0.15s ease-out;
+      -webkit-transition-property: opacity background;
+      -moz-transition-property: opacity background;
+      -o-transition-property: opacity background;
+      transition-property: opacity background;
+    }
+    .switch-label:before, .switch-label:after {
+      position: absolute;
+      top: 50%;
+      margin-top: -.5em;
+      line-height: 1;
+      -webkit-transition: inherit;
+      -moz-transition: inherit;
+      -o-transition: inherit;
+      transition: inherit;
+    }
+    .switch-label:before {
+      content: attr(data-off);
+      right: 11px;
+      color: #aaa;
+      text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+    }
+    .switch-label:after {
+      content: attr(data-on);
+      left: 11px;
+      color: white;
+      text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+    }
+    .switch-input:checked ~ .switch-label {
+      background: #6cc644;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+    .switch-input:checked ~ .switch-label:before {
+      opacity: 0;
+    }
+    .switch-input:checked ~ .switch-label:after {
+      opacity: 1;
+    }
+
+    .switch-handle {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 21px;
+      height: 21px;
+      //top: 4px;
+      //left: 4px;
+      //width: 18px;
+      //height: 18px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+      background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
+      background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
+      background-image: -o-linear-gradient(top, white 40%, #f0f0f0);
+      background-image: linear-gradient(to bottom, white 40%, #f0f0f0);
+      -webkit-transition: left 0.15s ease-out;
+      -moz-transition: left 0.15s ease-out;
+      -o-transition: left 0.15s ease-out;
+      transition: left 0.15s ease-out;
+    }
+    .switch-handle:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -6px 0 0 -6px;
+      width: 12px;
+      height: 12px;
+      background: #f9f9f9;
+      border-radius: 6px;
+      box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+      background-image: -webkit-linear-gradient(top, #eeeeee, white);
+      background-image: -moz-linear-gradient(top, #eeeeee, white);
+      background-image: -o-linear-gradient(top, #eeeeee, white);
+      background-image: linear-gradient(to bottom, #eeeeee, white);
+    }
+    .switch-input:checked ~ .switch-handle {
+      left: 40px;
+      box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .switch-green > .switch-input:checked ~ .switch-label {
+      background: #4fb845;
+    }
+
+
+  }
+}
+
+.icon {
+  background: url('sprite.png') no-repeat;
+  background-size: 450px 445px;
+  display: inline-block;
+}
+
+.icon.icon-error-large {
+  background-position: 0 0;
+  width: 140px;
+  height: 140px;
+}
+
+.icon.icon-unavailable {
+  background-position: -140px 0;
+  width: 140px;
+  height: 140px;
+}
+
+.icon.icon-2fa-enabled {
+  background-position: 0 -140px;
+  width: 69px;
+  height: 111px;
+}
+
+.icon.icon-dyno-px {
+  background-position: -69px -140px;
+  width: 36px;
+  height: 50px;
+}
+
+.icon.icon-property-support-hover {
+  background-position: -105px -140px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-addons-active {
+  background-position: -153px -140px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-addons-hover {
+  background-position: -201px -140px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-addons {
+  background-position: -69px -190px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dashboard-active {
+  background-position: -117px -190px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dashboard-hover {
+  background-position: -165px -190px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dashboard {
+  background-position: -213px -190px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-databases-hover {
+  background-position: -280px 0;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-databases {
+  background-position: -280px -48px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-support {
+  background-position: -280px -96px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dataclips-active {
+  background-position: -280px -144px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-support-active {
+  background-position: -280px -192px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-documentation {
+  background-position: 0 -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-documentation-hover {
+  background-position: -48px -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-documentation-active {
+  background-position: -96px -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-databases-active {
+  background-position: -144px -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dataclips {
+  background-position: -192px -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-property-dataclips-hover {
+  background-position: -240px -251px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon.icon-hex-create-app {
+  background-position: -288px -251px;
+  width: 40px;
+  height: 45px;
+}
+
+.icon.icon-hex-getting-started {
+  background-position: -328px 0;
+  width: 40px;
+  height: 45px;
+}
+
+.icon.icon-dyno-2x {
+  background-position: -328px -45px;
+  width: 36px;
+  height: 44px;
+}
+
+.icon.icon-dropbox-dnd {
+  background-position: 0 -299px;
+  width: 95px;
+  height: 42px;
+}
+
+.icon.icon-git {
+  background-position: -95px -299px;
+  width: 42px;
+  height: 42px;
+}
+
+.icon.icon-dropbox {
+  background-position: -137px -299px;
+  width: 42px;
+  height: 42px;
+}
+
+.icon.icon-dyno-1x {
+  background-position: -328px -89px;
+  width: 36px;
+  height: 41px;
+}
+
+.icon.icon-language-python {
+  background-position: -328px -130px;
+  width: 32px;
+  height: 36px;
+}
+
+.icon.icon-language-node {
+  background-position: -328px -166px;
+  width: 31px;
+  height: 36px;
+}
+
+.icon.icon-language-ruby-white {
+  background-position: -328px -202px;
+  width: 36px;
+  height: 36px;
+}
+
+.icon.icon-language-node-white {
+  background-position: -328px -238px;
+  width: 31px;
+  height: 36px;
+}
+
+.icon.icon-language-java {
+  background-position: -179px -299px;
+  width: 32px;
+  height: 36px;
+}
+
+.icon.icon-language-java-white {
+  background-position: -211px -299px;
+  width: 32px;
+  height: 36px;
+}
+
+.icon.icon-language-python-white {
+  background-position: -243px -299px;
+  width: 32px;
+  height: 36px;
+}
+
+.icon.icon-language-scala-white {
+  background-position: -249px -140px;
+  width: 26px;
+  height: 36px;
+}
+
+.icon.icon-shevron {
+  background-position: -261px -190px;
+  width: 19px;
+  height: 36px;
+}
+
+.icon.icon-language-clojure {
+  background-position: -275px -299px;
+  width: 34px;
+  height: 36px;
+}
+
+.icon.icon-language-php {
+  background-position: -309px -299px;
+  width: 58px;
+  height: 36px;
+}
+
+.icon.icon-language-clojure-white {
+  background-position: -368px 0;
+  width: 34px;
+  height: 36px;
+}
+
+.icon.icon-language-scala {
+  background-position: -368px -36px;
+  width: 26px;
+  height: 36px;
+}
+
+.icon.icon-language-php-white {
+  background-position: 0 -341px;
+  width: 58px;
+  height: 36px;
+}
+
+.icon.icon-language-ruby {
+  background-position: -58px -341px;
+  width: 36px;
+  height: 36px;
+}
+
+.icon.icon-activity-default {
+  background-position: -368px -72px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-addon-add {
+  background-position: -368px -104px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-addon {
+  background-position: -368px -136px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-wizard-app {
+  background-position: -368px -168px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-build-fail {
+  background-position: -368px -200px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-wizard-billing {
+  background-position: -368px -232px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-wizard-member {
+  background-position: -368px -264px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-rollback {
+  background-position: -368px -296px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-initial-release {
+  background-position: -94px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-deploy {
+  background-position: -126px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-addon-remove {
+  background-position: -158px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-default-alt {
+  background-position: -190px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-config-var {
+  background-position: -222px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-config-var-remove {
+  background-position: -254px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-config-var-add {
+  background-position: -286px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-build {
+  background-position: -318px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-activity-build-success {
+  background-position: -350px -341px;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-wizard-naming {
+  background-position: -402px 0;
+  width: 32px;
+  height: 32px;
+}
+
+.icon.icon-app-active {
+  background-position: -402px -32px;
+  width: 28px;
+  height: 30px;
+}
+
+.icon.icon-app {
+  background-position: -402px -62px;
+  width: 28px;
+  height: 30px;
+}
+
+.icon.icon-logo {
+  background-position: -402px -92px;
+  width: 26px;
+  height: 29px;
+}
+
+.icon.icon-personal-apps {
+  background-position: -402px -121px;
+  width: 26px;
+  height: 28px;
+}
+
+.icon.icon-cc-visa {
+  background-position: 0 -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-cc-heroku {
+  background-position: -42px -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-cc-generic {
+  background-position: -84px -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-cc-discover {
+  background-position: -126px -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-cc-amex {
+  background-position: -168px -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-transfer {
+  background-position: -210px -377px;
+  width: 45px;
+  height: 28px;
+}
+
+.icon.icon-cc-mastercard {
+  background-position: -255px -377px;
+  width: 42px;
+  height: 28px;
+}
+
+.icon.icon-add-addon {
+  background-position: -402px -149px;
+  width: 26px;
+  height: 26px;
+}
+
+.icon.icon-account-nav-billing {
+  background-position: -402px -175px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-account-nav-applications-active {
+  background-position: -402px -199px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-access-active {
+  background-position: -402px -223px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-access {
+  background-position: -402px -247px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-activity-active {
+  background-position: -402px -271px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-activity {
+  background-position: -402px -295px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-code-active {
+  background-position: -402px -319px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-code {
+  background-position: -402px -343px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-metrics-active {
+  background-position: -328px -274px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-metrics {
+  background-position: -297px -377px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-account-nav-account-active {
+  background-position: -321px -377px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-resources-active {
+  background-position: -345px -377px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-account-nav-applications {
+  background-position: -369px -377px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-resources {
+  background-position: -393px -377px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-settings-active {
+  background-position: 0 -405px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-app-nav-settings {
+  background-position: -24px -405px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-account-nav-account {
+  background-position: -48px -405px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-account-nav-billing-active {
+  background-position: -72px -405px;
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-cc-visa-mini {
+  background-position: -96px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-cc-mastercard-mini {
+  background-position: -130px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-cc-heroku-mini {
+  background-position: -164px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-cc-generic-mini {
+  background-position: -198px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-cc-discover-mini {
+  background-position: -232px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-cc-amex-mini {
+  background-position: -266px -405px;
+  width: 34px;
+  height: 22px;
+}
+
+.icon.icon-search-active {
+  background-position: -382px -341px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon.icon-search-clear {
+  background-position: -300px -405px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon.icon-search {
+  background-position: -320px -405px;
+  width: 20px;
+  height: 20px;
+}
+
+.icon.icon-navigator-toggle {
+  background-position: -340px -405px;
+  width: 36px;
+  height: 19px;
+}
+
+.icon.icon-close {
+  background-position: -352px -274px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-transfer-request {
+  background-position: -376px -405px;
+  width: 26px;
+  height: 16px;
+}
+
+.icon.icon-clear {
+  background-position: -417px -377px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-failure {
+  background-position: -402px -405px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-info {
+  background-position: -418px -405px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-add-button {
+  background-position: -434px 0;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-add {
+  background-position: -434px -16px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-warning-triangle-badge {
+  background-position: 0 -429px;
+  width: 20px;
+  height: 16px;
+}
+
+.icon.icon-warning-badge {
+  background-position: -434px -32px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-todo {
+  background-position: -434px -48px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-org-wizard {
+  background-position: -434px -64px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-success {
+  background-position: -434px -80px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-remove {
+  background-position: -434px -96px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-undo {
+  background-position: -434px -112px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-app-small {
+  background-position: -434px -128px;
+  width: 14px;
+  height: 16px;
+}
+
+.icon.icon-error-badge {
+  background-position: -434px -144px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon.icon-clipboard {
+  background-position: -434px -160px;
+  width: 13px;
+  height: 15px;
+}
+
+.icon.icon-hamburger {
+  background-position: -434px -175px;
+  width: 16px;
+  height: 15px;
+}
+
+.icon.icon-back {
+  background-position: -434px -190px;
+  width: 12px;
+  height: 14px;
+}
+
+.icon.icon-tick {
+  background-position: -20px -429px;
+  width: 19px;
+  height: 14px;
+}
+
+.icon.icon-tick-green {
+  background-position: -39px -429px;
+  width: 19px;
+  height: 14px;
+}
+
+.icon.icon-favorite-active {
+  background-position: -434px -204px;
+  width: 15px;
+  height: 14px;
+}
+
+.icon.icon-favorite-placeholder {
+  background-position: -434px -218px;
+  width: 15px;
+  height: 14px;
+}
+
+.icon.icon-favorite {
+  background-position: -434px -232px;
+  width: 15px;
+  height: 14px;
+}
+
+.icon.icon-personal {
+  background-position: -434px -246px;
+  width: 14px;
+  height: 13px;
+}
+
+.icon.icon-external-link {
+  background-position: -434px -259px;
+  width: 15px;
+  height: 12px;
+}
+
+.icon.icon-app-asleep {
+  background-position: -434px -271px;
+  width: 16px;
+  height: 12px;
+}
+
+.icon.icon-breadcrumb {
+  background-position: -434px -283px;
+  width: 8px;
+  height: 9px;
+}
+
+.icon.icon-caret-blue {
+  background-position: -434px -292px;
+  width: 9px;
+  height: 6px;
+}
+
+.icon.icon-caret {
+  background-position: -434px -298px;
+  width: 9px;
+  height: 6px;
+}
+
+.icon.icon-caret-purple {
+  background-position: -434px -304px;
+  width: 9px;
+  height: 6px;
+}
+
+@media (min--moz-device-pixel-ratio: 2),
+(-o-min-device-pixel-ratio: 2/1),
+(-webkit-min-device-pixel-ratio: 2),
+(min-device-pixel-ratio: 2) {
+  .icon {
+    background: url('sprite.png') no-repeat;
+    background-size: 450px 445px;
+  }
+}

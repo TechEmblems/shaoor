@@ -22,4 +22,9 @@ class Device < ActiveRecord::Base
   validates :key, presence: true, uniqueness: true
 
   belongs_to :user
+
+
+  def stolen?
+    return true if self.status == 'Stolen'
+  end
 end

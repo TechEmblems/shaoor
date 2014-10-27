@@ -1,0 +1,25 @@
+body.account-page{
+  abbr[title], abbr[data-original-title]{
+    border-bottom: none;
+  }
+
+  input[type='text'], input.form-control, input[type='email']{
+    width: 275px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 8px;
+    box-shadow: none;
+    border-color: none;
+    &:focus{
+      box-shadow: none;
+      border-color: none;
+      border-bottom-color: #66afe9;
+    }
+
+  }
+
+  form{
+    margin-left: 30px;
+  }
+}
