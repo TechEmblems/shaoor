@@ -12,7 +12,7 @@ gem 'settingslogic', '~> 2.0.9'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0',  :group => :doc
 
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
@@ -36,11 +36,12 @@ gem 'devise', '~> 3.3.0'
 gem 'doorkeeper', '~> 1.4.0'
 gem 'grape-doorkeeper', '~> 0.0.2'
 gem 'cancan', '~> 1.6.10'
-gem 'rails_admin', '~> 0.6.3'
 
 # API
 gem 'grape', '~> 0.9.0'
 gem 'grape-swagger', '~> 0.8.0'
+
+gem 'activeadmin', :github => 'activeadmin'
 
 # APP SERVER
 gem 'puma', '~> 2.9.1'

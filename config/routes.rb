@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  use_doorkeeper
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
+  devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations' }
 
   resources :devices do
-    post :update_status, on: :member
+    post :update_status, :on => :member
   end
   resources :profiles
 
