@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Regdevice - A project by ShaoOr</title>
+  <title>RegDevice - Register your device</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -21,19 +21,23 @@
           $('.scroll-pane').jScrollPane();
       });
   </script>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 </head>
-<body class="landing">
-    <% if user_signed_in? %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<body class="<%= current_page?(root_url) ? 'landing' : 'account-page'  %>">
+    <% if current_user %>
+        <%= render 'shared/main_nav'%>
+        <div id="wrapper">
+          <%= render 'shared/sidebar'%>
+          <div id="page-content-wrapper">
+            <div class="container-fluid">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+    <% else %>
+        <%= yield %>
     <% end %>
-    <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-
-    <%= yield %>
     <%= render :template => 'layouts/footer' %>
 
 </body>

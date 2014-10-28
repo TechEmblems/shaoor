@@ -5,21 +5,24 @@ gem 'rails', '4.1.6'
 gem 'mysql2', '~> 0.3.16'
 gem 'simple_form', '~> 3.0.2'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 gem 'annotate', '~> 2.6.5'
+gem 'settingslogic', '~> 2.0.9'
 
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0',  :group => :doc
 
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
-  gem 'autoprefixer-rails'
-  gem 'uglifier', '>= 1.3.0'
+  gem 'autoprefixer-rails', '~> 3.1.2.20141016'
+  gem 'uglifier', '~> 2.5.3'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'therubyracer', platforms: :ruby
 end
-
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -30,8 +33,15 @@ end
 
 # AUTHENTICATION AND AUTHORIZATION
 gem 'devise', '~> 3.3.0'
+gem 'doorkeeper', '~> 1.4.0'
+gem 'grape-doorkeeper', '~> 0.0.2'
 gem 'cancan', '~> 1.6.10'
-gem 'rails_admin', '~> 0.6.3'
+
+# API
+gem 'grape', '~> 0.9.0'
+gem 'grape-swagger', '~> 0.8.0'
+
+gem 'activeadmin', :github => 'activeadmin'
 
 # APP SERVER
 gem 'puma', '~> 2.9.1'
@@ -40,8 +50,9 @@ gem 'puma', '~> 2.9.1'
 group :development do
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-rails', '~> 1.1.2'
-  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
   gem 'capistrano-ext', '~> 1.2.1'
+  gem 'faker'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

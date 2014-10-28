@@ -1,0 +1,2 @@
+<% status = @device.status %>
+$('.devices-table').find('tr').find('.status-<%= @device.id %>').html('<%=status%>');

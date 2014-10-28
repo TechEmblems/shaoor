@@ -1,29 +1,72 @@
-<%= simple_form_for @profile, url: profile_path do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div class="inputs">
-      <%= f.input :name %>
-      <%= f.input :email %>
-      <%= f.input :father_name %>
-      <%= f.input :cnic %>
-      <%= f.input :phone %>
-      <%= f.input :address %>
-      <%= f.simple_fields_for :contact_details do |c| %>
-          <%= c.input :type, collection: Device::TYPE, include_blank: false %>
-          <%= c.input :value, label: 'Contact' %>
-      <% end %>
+<h3><%= controller.action_name.capitalize %> Profile</h3>
+<hr>
+<%= simple_form_for @profile, url: profile_path, html: { class: 'form-horizontal', role: "form" }  do |f| %>
+    <div class="form-group">
+      <%#= f.label :name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :name, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Name' %>
+      </div>
     </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%#= f.label :email, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :email, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Email' %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%#= f.label :father_name, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :father_name, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Father Name' %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%#= f.label :cnic, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :cnic, label: false, input_html: {class: "form-control"}, placeholder: 'CNIC' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%#= f.label :phone, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :phone, label: false, input_html: {class: "form-control bfh-phone", data: {format: "+(ddd) ddd-dddd"}}, placeholder: 'Phone' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%#= f.label :address, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.input :address, label: false, input_html: {class: "form-control"}, placeholder: 'Address' %>
+      </div>
+    </div>
+
+    <%= f.simple_fields_for :contact_details do |c| %>
+
+        <div class="form-group">
+          <%= c.label :type, :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= c.input :type, collection: Device::TYPE, label: false, :class => 'form-control', include_blank: false, required: true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= c.label :value, as: 'Contact', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= c.input :value, label: false, :class => 'form-control', include_blank: false, required: true %>
+          </div>
+        </div>
+    <% end %>
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit :class => 'btn btn-default' %>
+      </div>
+    </div>
+
 <% end %>

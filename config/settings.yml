@@ -1,0 +1,11 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  secret_key: ''
+  devise_secret_key: ''
+
+production:
+  <<: *defaults
+  secret_key: ''
+  devise_secret_key: ''
