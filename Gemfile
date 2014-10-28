@@ -10,7 +10,7 @@ gem 'annotate', '~> 2.6.5'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0',  :group => :doc
 
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
@@ -32,8 +32,7 @@ end
 # AUTHENTICATION AND AUTHORIZATION
 gem 'devise', '~> 3.3.0'
 gem 'cancan', '~> 1.6.10'
-gem 'rails_admin', '~> 0.6.3'
-
+gem 'activeadmin', :github => 'activeadmin'
 # APP SERVER
 gem 'puma', '~> 2.9.1'
 

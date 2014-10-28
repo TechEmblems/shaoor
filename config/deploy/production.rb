@@ -6,7 +6,7 @@
 
 role :app, %w{162.243.69.154}
 role :web, %w{162.243.69.154}
-role :db,  %w{162.243.69.154}, primary: true
+role :db,  %w{162.243.69.154}, :primary => true
 
 
 # Extended Server Syntax
@@ -15,7 +15,7 @@ role :db,  %w{162.243.69.154}, primary: true
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '162.243.69.154', user: 'deploy', roles: %w{web app}, my_property: :my_value
+server '162.243.69.154', :user => 'deploy', :roles => %w{web app}, :my_property => :my_value
 
 
 # Custom SSH Options
