@@ -5,7 +5,7 @@ set :application, 'regdevice'
 set :repo_url, 'git@github.com:shahroon/shaoor.git'
 
 # Default branch is :master
-set :branch, 'production'
+set :branch, 'master'
 
 set :rvm_type, :system
 set :rvm_ruby_version, 'ruby-2.1.3@regdevice'
