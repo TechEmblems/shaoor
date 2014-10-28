@@ -40,8 +40,7 @@ gem 'cancan', '~> 1.6.10'
 # API
 gem 'grape', '~> 0.9.0'
 gem 'grape-swagger', '~> 0.8.0'
-
-gem 'activeadmin', :github => 'activeadmin'
+#gem 'activeadmin', :github => 'activeadmin'
 
 # APP SERVER
 gem 'puma', '~> 2.9.1'
