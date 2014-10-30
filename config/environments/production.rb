@@ -41,7 +41,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -74,4 +74,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'regdevice.com' }
+  config.action_mailer.smtp_settings = { :address => 'smtpout.secureserver.net', :domain => 'regdevice.com' }
+  config.action_mailer.logger = ActiveSupport::BufferedLogger.new( Rails.root.join('log', 'mailer.log') )
+  config.action_mailer.logger.level = ActiveSupport::BufferedLogger::Severity::INFO
 end
