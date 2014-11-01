@@ -75,9 +75,14 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'regdevice.com' }
-  config.action_mailer.smtp_settings = { :address => 'smtpout.secureserver.net', :domain => 'regdevice.com' }
-  config.action_mailer.logger = ActiveSupport::Logger.new( Rails.root.join('log', 'mailer.log') )
-  config.action_mailer.logger.level = ActiveSupport::Logger::Severity::INFO
+  config.action_mailer.smtp_settings = { :address => 'smtp.regdevice.com', :domain => 'regdevice.com' }
+  config.action_mailer.logger = ActiveSupport::BufferedLogger.new( Rails.root.join('log', 'mailer.log') )
+  config.action_mailer.logger.level = ActiveSupport::BufferedLogger::Severity::INFO
+
 end
