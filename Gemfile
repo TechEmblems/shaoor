@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',  :group => :doc
+gem "mail_form", ">= 1.3.0"
 
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
