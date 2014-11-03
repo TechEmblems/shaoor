@@ -82,6 +82,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'regdevice.com' }
   config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => '25', :domain => 'regdevice.com' }
-  config.action_mailer.logger = ActiveSupport::BufferedLogger.new( Rails.root.join('log', 'mailer.log') )
-  config.action_mailer.logger.level = ActiveSupport::BufferedLogger::Severity::INFO
+  config.action_mailer.logger = ActiveSupport::Logger.new( Rails.root.join('log', 'mailer.log') )
+  config.action_mailer.logger.level = ActiveSupport::Logger::Severity::INFO
 end
