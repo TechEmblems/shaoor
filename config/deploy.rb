@@ -15,6 +15,7 @@ set :rbenv_path, '/opt/rbenv'
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/apps/regdevice'
 set :use_sudo, true
+set :bluepill_bin, 'bluepill'
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -40,14 +41,6 @@ set :use_sudo, true
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), :in => :sequence, :wait => 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
 
   before 'deploy:compile_assets', :symlink_db
   # before 'deploy:compile_assets', :symlink_sockets
@@ -76,8 +69,27 @@ namespace :deploy do
       # end
     end
   end
+end
 
-  #after "deploy:updated", "deploy:symlink_config"
+after "deploy:update", "bluepill:stop", "bluepill:start"
+namespace :bluepill do
+  desc "Stop bluepill deamon"
+  task :stop, :roles => [:app] do
+    execute "sudo #{bluepill_bin} #{application} stop"
+  end
 
+  desc "Start bluepill deamon"
+  task :start, :roles => [:app] do
+    execute "sudo #{bluepill_bin} load /etc/bluepill/#{application}.pill"
+  end
+    
+  desc "Restart bluepill daemon"
+  task :restart, :roles => :app, :except => {:no_release => true} do
+    execute "sudo #{bluepill_bin} #{application} restart"
+  end
 
+  desc "Status bluepill deamon"
+  task :status, :roles => [:app] do
+    execute "sudo #{bluepill_bin} #{application} status"
+  end
 end
