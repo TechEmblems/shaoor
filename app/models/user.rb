@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string(255)      not null
-#  encrypted_password     :string(255)      not null
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -17,11 +17,14 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
-#  name              :string(255)      not null
+#  name                   :string(255)      default(""), not null
 #  father_name            :string(255)
-#  cnic                   :integer          not null
-#  phone                  :integer          not null
-#  address                :string
+#  cnic                   :integer
+#  phone                  :integer
+#  address                :string(255)
+#  role                   :string(255)      default("Consumer"), not null
+#  terms                  :boolean          default(FALSE)
+#  completed_profile      :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
 #
@@ -39,6 +42,9 @@ class User < ActiveRecord::Base
 
   has_many :devices, dependent: :destroy
   accepts_nested_attributes_for :devices
+
+  has_many :pending_requests, dependent: :destroy
+  accepts_nested_attributes_for :pending_requests
 
   validates_confirmation_of :password, if: :re_valid
   def re_valid

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: devices
+# Table name: pending_requests
 #
 #  id         :integer          not null, primary key
 #  type       :string(255)      not null
@@ -15,18 +15,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  type: 
-  status: MyString
-  user_id: 
-  key: 1
-  company: MyString
-  model: MyString
-
-two:
-  type: 
-  status: MyString
-  user_id: 
-  key: 1
-  company: MyString
-  model: MyString
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

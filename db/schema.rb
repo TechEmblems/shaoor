@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019195200) do
+ActiveRecord::Schema.define(version: 20141108125727) do
 
   create_table "contact_details", force: true do |t|
     t.integer  "user_id",    null: false
@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 20141019195200) do
   add_index "contact_details", ["user_id"], name: "index_contact_details_on_user_id", using: :btree
 
   create_table "devices", force: true do |t|
-    t.string   "type",                 null: false
+    t.string   "type",                                null: false
     t.string   "status"
     t.integer  "user_id"
-    t.integer  "key",        limit: 8, null: false
+    t.integer  "key",        limit: 8,                null: false
     t.string   "company"
     t.string   "model"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "personal",             default: true
   end
 
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
@@ -83,6 +84,20 @@ ActiveRecord::Schema.define(version: 20141019195200) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree
+
+  create_table "pending_requests", force: true do |t|
+    t.string   "type",                                null: false
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "key",        limit: 8,                null: false
+    t.string   "company"
+    t.string   "model"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "personal",             default: true
+  end
+
+  add_index "pending_requests", ["user_id"], name: "index_pending_requests_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                            default: "",         null: false

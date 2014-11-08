@@ -3,19 +3,24 @@
 <ul class="sidebar-nav">
   <li class="sidebar-brand">
     <a id="ember929" class="ember-view" href="<%= root_path %>">
-      <%= image_tag "logo_inner.png", class: 'brand-logo'%>
+      <%= image_tag 'logo_inner.png', class: 'brand-logo'%>
       <h5 class="dashboard-logo-text"><%= current_user.name %></h5>
     </a>
   </li>
   <li class="primary-devices">
-    <a href="#">
-      <h6><%#= 'Primary Devices' %></h6>
-    </a>
+    <%= link_to devices_path do %>
+        <h6><%= 'Personal Devices' %></h6>
+    <% end %>
   </li>
   <li class="secondary-devices">
-    <a href="#">
-        <h6><%#= 'Other Devices' %></h6>
-    </a>
+    <%= link_to other_devices_path do %>
+        <h6><%= 'Other Devices' %></h6>
+    <% end %>
+  </li>
+  <li class="secondary-devices">
+    <%= link_to pending_devices_path do %>
+        <h6><%= 'Pending Devices' %></h6>
+    <% end %>
   </li>
 </ul>
 </div>

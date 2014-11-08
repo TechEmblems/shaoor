@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: devices
+# Table name: pending_requests
 #
 #  id         :integer          not null, primary key
 #  type       :string(255)      not null
@@ -13,7 +13,7 @@
 #  updated_at :datetime
 #
 
-class Device < ActiveRecord::Base
+class PendingRequest < ActiveRecord::Base
   self.inheritance_column = nil
   TYPE = %w[Mobile Laptop Tablet Cameras iPod]
   STATUS = %W[Active Sold Stolen Missing]
@@ -22,16 +22,10 @@ class Device < ActiveRecord::Base
   validates :key, presence: true
 
   belongs_to :user
-  scope :personal_devices, -> { where(personal: true) }
-  scope :other_devices, -> { where(personal: false) }
 
   after_create :send_notification_email
 
-  def stolen?
-    return true if self.status == 'Stolen'
-  end
-
   def send_notification_email
-    DeviceMailer.device_registered(self.user, self).deliver
+    DeviceMailer.pending_request(self.user, self).deliver
   end
 end

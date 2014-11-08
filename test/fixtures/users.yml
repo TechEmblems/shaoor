@@ -3,8 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string(255)      not null
-#  encrypted_password     :string(255)      not null
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -17,11 +17,14 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
-#  full_name              :string(255)      not null
+#  name                   :string(255)      default(""), not null
 #  father_name            :string(255)
-#  nic_number             :integer          not null
-#  contact_number         :integer          not null
-#  current_address        :integer
+#  cnic                   :integer
+#  phone                  :integer
+#  address                :string(255)
+#  role                   :string(255)      default("Consumer"), not null
+#  terms                  :boolean          default(FALSE)
+#  completed_profile      :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
 #
