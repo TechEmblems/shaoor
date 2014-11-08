@@ -3,43 +3,43 @@
 <%= simple_form_for @device, html: { class: 'form-horizontal', role: "form" }  do |f| %>
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :company, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Company Name' %>
+        <%= f.input :company, label: false, input_html: {class: "form-control input-lg", autofocus: true}, placeholder: 'Company' %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :model, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Model Name' %>
+        <%= f.input :model, label: false, input_html: {class: "form-control input-lg"}, placeholder: 'Model' %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :key, label: false, input_html: {class: "form-control", autofocus: true}, placeholder: 'Key' %>
+        <%= f.input :key, label: false, input_html: {class: "form-control input-lg"}, placeholder: 'IMEI/ Serial Key' %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :type, collection: Device::TYPE, label: false, :class => 'form-control', include_blank: false, required: true %>
+        <%= f.input :type, collection: Device::TYPE, label: false, input_html: {:class => 'form-control input-lg'}, include_blank: false, required: true %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :status, collection: Device::STATUS, label: false, :class => 'form-control', include_blank: false, required: true %>
+        <%= f.input :status, collection: Device::STATUS, label: false, input_html: {:class => 'form-control input-lg'}, include_blank: false, required: true %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-10">
-        <%= f.input :personal, as: :boolean, label: 'Is this your personal device?', class: 'form-control', include_blank: false, required: false %>
+        <%= f.input :personal, as: :boolean, label: 'Is this your personal device?', class: 'form-control', required: false %>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit :class => 'btn btn-default' %>
+        <%= f.submit :class => 'btn btn-primary btn-lg' %>
       </div>
     </div>
 

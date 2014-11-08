@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20141108125727) do
 
   add_index "contact_details", ["user_id"], name: "index_contact_details_on_user_id", using: :btree
 
+  create_table "contact_informations", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "type",       null: false
+    t.string   "value",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_informations", ["user_id"], name: "index_contact_informations_on_user_id", using: :btree
+
   create_table "devices", force: true do |t|
     t.string   "type",                                null: false
     t.string   "status"

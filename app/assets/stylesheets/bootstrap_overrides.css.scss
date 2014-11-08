@@ -3,12 +3,8 @@ body.account-page{
     border-bottom: none;
   }
 
-  input[type='text'], input.form-control, input[type='email']{
+  input[type='text'], input.form-control, input[type='email'], select{
     width: 275px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-radius: 8px;
     box-shadow: none;
     border-color: none;
     &:focus{
@@ -21,5 +17,15 @@ body.account-page{
 
   form{
     margin-left: 30px;
+  }
+
+  label{
+    color: #555;
+    font-weight: normal;
+    margin-left: 10px;
+  }
+
+  .col-sm-offset-2{
+    margin-left: 0px;
   }
 }
