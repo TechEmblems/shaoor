@@ -1,23 +1,14 @@
 <%= render :partial => 'header' %>
 <%= render :partial => 'about_us' %>
 <!-- Interduce Starts Here  ---->
-<!--<div class="interduce">
-  <div class="container">
-    <div class="row interduce-row">
-      <div class="col-md-6 inter-row-column2">
-        <img src="<%#= image_url('iphone-1.png') %>" alt=""/>
-      </div>
-      <div class="col-md-6 inter-row-column">
-        <h4>Who are we?</h4>
-        <p>Project Shaoor is an initiative taken by group of Pakistani Software Engineers where the target is to solve domestic issues with or without Government's help. We believe in “Apni Madad Aap” and that’s what we are trying to achieve by taking such initiatives. </p>
-        <p>This is just the beginning, RegDevice is Chapter#1 of Project Shaoor we have lots of other ideas to launch and we will. In Sha Allah </p>
-        <ul class="inter-duce">
-        </ul>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</div>-->
+<!--<div class="interduce">-->
+      <!--<div class="col-md-6 inter-row-column">-->
+        <!--<h4>Who are we?</h4>-->
+        <!--<p>Project Shaoor is an initiative taken by group of Pakistani Software Engineers where the target is to solve domestic issues with or without Government's help. We believe in “Apni Madad Aap” and that’s what we are trying to achieve by taking such initiatives. </p>-->
+        <!--<p>This is just the beginning, RegDevice is Chapter#1 of Project Shaoor we have lots of other ideas to launch and we will. In Sha Allah </p>-->
+      <!--</div>-->
+      <!--<div class="clearfix"></div>-->
+<!--</div>-->
 <!-- Interduce Ends Here  ---->
 <!--- Slider Starts Here --->
 <div class="slider">
@@ -32,7 +23,7 @@
                   auto: true,
                   pager: true,
                   nav: true,
-                  speed: 500,
+                  speed: 1000,
                   namespace: "callbacks",
                   before: function () {
                       $('.events').append("<li>before event fired.</li>");
@@ -50,23 +41,17 @@
         <ul class="rslides" id="slider4">
           <li>
             <div class="slider-top">
-              <img src="<%#= image_url('1.jpeg') %>" alt=""/>
-              <p> Shahroon A. Khan, LHR </p>
-              <p class="below">Founder</p>
+              <p> If you buy stolen goods and even if you paid a fair price and didn’t know that the goods were stolen.
+                The person who originally owned them is still the legal owner. </p>
+              <p class="below"><i>Buyer of Stolen Goods, International Law</i> </p>
             </div>
           </li>
           <li>
             <div class="slider-top">
-              <img src="<%#= image_url('2.jpg') %>" alt=""/>
-              <p>Rehmat Qadir, LHR</p>
-              <p class="below">Co-Founder</p>
-            </div>
-          </li>
-          <li>
-            <div class="slider-top">
-              <img src="<%#= image_url('3.jpg') %>" alt=""/>
-              <p>Muneeb Mir, LHR</p>
-              <p class="below">Co-Founder</p>
+              <p>3 years of imprisonment if charged with 411 <br>
+                7 years of imprisonment if charged with 412 <br>
+                Imprisonment for life if charged with 413 of Pakistan Penal Code.</p>
+              <p class="below"><i>Penalties for Retaining such property, Pakistan Law</i></p>
             </div>
           </li>
         </ul>
@@ -87,31 +72,25 @@
     <ul class="numbers">
       <li>
         <div class="number-top">
-          <h4>23,567</h4>
-          <p>Queries received</p>
-        </div>
-      </li>
-      <li>
-        <div class="number-top">
-          <h4>431,729</h4>
+          <h4><%=active_users%></h4>
           <p>Active Users</p>
         </div>
       </li>
       <li>
         <div class="number-top">
-          <h4>892,173</h4>
+          <h4><%=reg_devices%></h4>
           <p>Registered Devices</p>
         </div>
       </li>
       <li>
         <div class="number-top">
-          <h4>56,581</h4>
+          <h4>0</h4>
           <p>Reported to PTA</p>
         </div>
       </li>
       <li>
         <div class="number-top">
-          <h4>3,182</h4>
+          <h4><%=reg_dealers%></h4>
           <p>Registered Dealers</p>
         </div>
       </li>

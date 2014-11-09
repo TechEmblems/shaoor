@@ -58,4 +58,12 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def dealer?
+    self.role == "Dealer"
+  end
+
+  def consumer?
+    self.role == "Consumer"
+  end
 end
