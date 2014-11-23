@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     post :update_status, :on => :member
   end
   resources :profiles
+  resources :tickets
+  resources :responses
 
   root 'home#index'
 

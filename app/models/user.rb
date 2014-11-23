@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
   has_many :pending_requests, dependent: :destroy
   accepts_nested_attributes_for :pending_requests
 
+  has_many :tickets, dependent: :destroy
+
   validates_confirmation_of :password, if: :re_valid
   def re_valid
     false

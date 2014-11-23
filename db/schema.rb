@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108125727) do
+ActiveRecord::Schema.define(version: 20141122061552) do
 
   create_table "contact_details", force: true do |t|
     t.integer  "user_id",    null: false
@@ -22,16 +22,6 @@ ActiveRecord::Schema.define(version: 20141108125727) do
   end
 
   add_index "contact_details", ["user_id"], name: "index_contact_details_on_user_id", using: :btree
-
-  create_table "contact_informations", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "type",       null: false
-    t.string   "value",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contact_informations", ["user_id"], name: "index_contact_informations_on_user_id", using: :btree
 
   create_table "devices", force: true do |t|
     t.string   "type",                                null: false
@@ -108,6 +98,26 @@ ActiveRecord::Schema.define(version: 20141108125727) do
   end
 
   add_index "pending_requests", ["user_id"], name: "index_pending_requests_on_user_id", using: :btree
+
+  create_table "responses", force: true do |t|
+    t.text     "description"
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.boolean  "read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: true do |t|
+    t.string   "subject"
+    t.text     "description"
+    t.string   "type"
+    t.string   "status"
+    t.integer  "agent_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                            default: "",         null: false
