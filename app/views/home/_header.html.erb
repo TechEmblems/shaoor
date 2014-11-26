@@ -6,8 +6,11 @@
     </div>
     <div class="menu">
       <ul class="menu-top">
-        <li><a id="login" class="play-icon popup-with-zoom-anim" href="#small-dialog">Log In</a></li><!--popup-with-zoom-anim #small-dialog-->
-        <li><a id="sign_up" class="play-icon popup-with-zoom-anim" href="#small-dialog1">Sign up</a></li><!-- popup-with-zoom-anim #small-dialog1-->
+        <li class="hide"><a href="#home" class="homepage-links" data-type="search-page">Home</a></li>
+        <li><a href="#login" class="homepage-links" data-type="login-page">Login</a></li>
+        <li><a href="#register" class="homepage-links" data-type="register-page">Register</a></li>
+        <!-- <li><a id="login" class="play-icon popup-with-zoom-anim" href="#login" data-remote="true">Log In</a></li><!--popup-with-zoom-anim #small-dialog--> -->
+        <!-- <li><a id="sign_up" class="play-icon popup-with-zoom-anim" href="#register">Sign up</a></li><!-- popup-with-zoom-anim #small-dialog1--> -->
         <li><div class="main">
           <section>
             <button id="showRight" class="navig"></button>
@@ -107,18 +110,61 @@
     </div>
     <div class="clearfix"></div>
     <div class="header-bottom">
-      <p>Register Your device</p>
-      <h1>RegDevice</h1>
-      <%= form_tag(search_path, remote: true, method: "get", class: "search-form-wrapper cf") do %>
+      <!-- Search Form On HomePage -->
+      <div class="pages search-page">
+        <p>Register Your device</p>
+        <h1>RegDevice</h1>
+        <%= form_tag(search_path, remote: true, method: "get", class: "search-form-wrapper cf") do %>
           <%= text_field_tag(:search_key, "", placeholder: "Please insert your IMEI or serial key") -%>
           <%= button_tag("Check", id: "search-btn") -%>
-      <% end %> 
-      <!--<a href="#">Get Started</a>-->
-      <p class="reward">OR SEND US YOUR IMEI AND <u>GET REGISTERED!</u></p>
-      <div class="notice bg-success" style="border-radius: 5px;margin-top: 10px;">
-        <%= notice %>
+        <% end %> 
+        <!--<a href="#">Get Started</a>-->
+        <p class="reward">OR SEND US YOUR IMEI AND <u>GET REGISTERED!</u></p>
+        <div class="notice bg-success" style="border-radius: 5px;margin-top: 10px;">
+          <%= notice %>
+        </div>
+        <span class="alert"><%= alert %></span>
       </div>
-      <span class="alert"><%= alert %></span> 
+
+      <!-- Login Form On HomePage -->
+      <div class="pages login-page hide">
+        <%= simple_form_for(:user, :url => session_path(:user), html: {class: 'form-2'}) do |f| %>
+        <h1><span class="log-in">Log in<!--</span> or <span class="sign-up">sign up</span>--></h1>
+        <p class="float">
+          <label for="login"><i class="icon-user"></i>Email</label>
+          <input type="text" name="user[email]" placeholder="Email">
+        </p>
+        <p class="float">
+          <label for="password"><i class="icon-lock"></i>Password</label>
+          <input type="password" name="user[password]" placeholder="Password" class="showpassword">
+        </p>
+        <p class="clearfix">
+          <!-- <a href="#" class="log-twitter">Log in with Google</a> -->
+          <input type="submit" name="submit" value="Log in">
+        </p>
+        <% end %>
+      </div>
+
+      <!-- Registration Form On HomePage -->
+      <div class="pages register-page hide">
+        <%= simple_form_for(:user, :url => registration_path(:user), html: {class: 'form-2'}) do |f| %>
+        <h1><span class="log-in">Register<!--</span> or <span class="sign-up">sign in</span>--></h1>
+        <p class="float">
+          <label for="login"><i class="icon-user"></i>Email</label>
+          <input type="text" name="user[email]" placeholder="Email">
+        </p>
+        <p class="float">
+          <label for="password"><i class="icon-lock"></i>Password</label>
+          <input type="password" name="user[password]" placeholder="Password" class="showpassword">
+        </p>
+        <p class="clearfix">
+          <!-- <a href="#" class="log-twitter">Log in with Google</a> -->
+          <input type="submit" name="submit" value="Register">
+        </p>
+        <% end %>
+
+        
+      </div>
     </div>
 
   </div>
