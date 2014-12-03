@@ -38,7 +38,14 @@
     <% else %>
         <%= yield %>
     <% end %>
+    <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+    <div class="alert-bar navbar navbar-static-top alert alert-<%= name %>" id="flash_<%= name %>" align="center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= msg %>
+    </div>
+    <% end %>
+    <% end %>
     <%= render :template => 'layouts/footer' %>
-
 </body>
 </html>

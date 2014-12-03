@@ -962,3 +962,14 @@ body.landing{
   display: none;
   margin: 0;
 }
+@import "bootstrap/_mixins.scss";
+.alert{
+  position: fixed;
+  top: 0;
+  min-width: 550px;
+  z-index: 9999;
+  color: #c09853;
+  background-color: #fcf8e3;
+  @include border-top-radius(0px);
+  @include border-bottom-radius(2px);
+}

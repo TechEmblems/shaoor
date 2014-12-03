@@ -86,6 +86,7 @@ class DevicesController < ApplicationController
   def search
     @device = Device.find_by_key(params[:search_key])
     @notice = @device.blank? ? "Not Registered yet" : "Status on RegDevice.com: #{@device.status}"
+
     respond_to do |format|
       format.html
       format.js
