@@ -59,37 +59,45 @@ namespace :deploy do
     end
   end
 
-  after :publishing, :restart
+  # after :publishing, :restart
+  #
+  # after :restart, :clear_cache do
+  #   on roles(:web), :in => :groups, :limit => 3, :wait => 10 do
+  #     # Here we can do anything such as:
+  #     # within release_path do
+  #     #   execute :rake, 'cache:clear'
+  #     # end
+  #   end
+  # end
 
-  after :restart, :clear_cache do
-    on roles(:web), :in => :groups, :limit => 3, :wait => 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-end
-
-after "deploy:update", "bluepill:stop", "bluepill:start"
-namespace :bluepill do
-  desc "Stop bluepill deamon"
-  task :stop, :roles => [:app] do
-    execute "sudo #{bluepill_bin} #{application} stop"
-  end
-
-  desc "Start bluepill deamon"
-  task :start, :roles => [:app] do
-    execute "sudo #{bluepill_bin} load /etc/bluepill/#{application}.pill"
-  end
-    
-  desc "Restart bluepill daemon"
-  task :restart, :roles => :app, :except => {:no_release => true} do
-    execute "sudo #{bluepill_bin} #{application} restart"
-  end
-
-  desc "Status bluepill deamon"
-  task :status, :roles => [:app] do
-    execute "sudo #{bluepill_bin} #{application} status"
-  end
+  # after "deploy:compile_assets", :stop_bluepill
+  # after "deploy:compile_assets", :start_bluepill
+  #
+  # desc "Stop bluepill deamon"
+  # task :stop_bluepill do
+  #   on roles(:app) do
+  #     execute "sudo #{bluepill_bin} #{application} stop"
+  #   end
+  # end
+  #
+  # desc "Start bluepill deamon"
+  # task :start_bluepill do
+  #   on roles(:app) do
+  #     execute "sudo #{bluepill_bin} load /etc/bluepill/#{application}.pill"
+  #   end
+  # end
+  #
+  # desc "Restart bluepill daemon"
+  # task :restart_bluepill, :roles => :app, :except => {:no_release => true} do
+  #   on roles(:app) do
+  #     execute "sudo #{bluepill_bin} #{application} restart"
+  #   end
+  # end
+  #
+  # desc "Status bluepill deamon"
+  # task :status do
+  #   on roles(:app) do
+  #     execute "sudo #{bluepill_bin} #{application} status"
+  #   end
+  # end
 end
