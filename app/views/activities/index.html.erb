@@ -1,0 +1,6 @@
+<h1>Activities</h1>
+<% @activities.each do |activity| %>
+  <% activity.audited_changes.each do |field, value| %>
+    <p><%= field %> - <%= (value.is_a? Array) ? value[1] : value %></p>
+  <% end %>
+<% end %>

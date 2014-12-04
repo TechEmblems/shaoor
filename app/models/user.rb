@@ -30,6 +30,7 @@
 #
 
 class User < ActiveRecord::Base
+  # audited only: [:email, :name, :father_name, :cnic, :phone, :address, :current_sign_in_at]
   ROLES = %w[Consumer Admin Dealer]
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

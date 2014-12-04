@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, :controllers => { :sessions => 'users/sessions', :registrations => 'users/registrations' }
 
   get 'devices/search', as: :search
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
     post :update_status, :on => :member
   end
   resources :profiles
+  resources :activities
 
   root 'home#index'
 

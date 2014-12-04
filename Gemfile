@@ -8,7 +8,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'font-awesome-sass-rails', '~> 3.0.2.2'
 gem 'annotate', '~> 2.6.5'
 gem 'settingslogic', '~> 2.0.9'
-gem 'audited', '~> 4.0.0'
+gem 'audited-activerecord', '~> 4.0.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -66,4 +66,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

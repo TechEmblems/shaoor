@@ -3,7 +3,7 @@ module V1
     namespace 'Profile'
 
     resource :profiles do
-      desc 'Edit Profile'
+      desc 'EDIT PROFILE'
       params do
         requires :id, type: Integer, desc: 'User ID'
       end

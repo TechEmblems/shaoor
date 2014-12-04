@@ -3,7 +3,7 @@ module V1
     namespace 'Device'
 
     resource :devices do
-      desc 'Get Devices'
+      desc 'GET DEVICES'
       get '/' do
         @devices = Device.where(user_id: params[:user_id])
       end
