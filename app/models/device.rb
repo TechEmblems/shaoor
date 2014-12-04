@@ -14,7 +14,6 @@
 #
 
 class Device < ActiveRecord::Base
-  audited
   self.inheritance_column = nil
   TYPE = %w[Mobile Laptop Tablet Cameras iPod]
   STATUS = %W[Active Sold Stolen Missing]
